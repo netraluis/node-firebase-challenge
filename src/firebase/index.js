@@ -10,17 +10,4 @@ admin.initializeApp({
   databaseURL: 'https://node-firebase-challenge-default-rtdb.europe-west1.firebasedatabase.app/'
 });
 // db is the database itself
-const db = admin.database();
-
-exports.create = async (newJob) => {
-  await db.ref('jobs').push(newJob).then(res=>{
-    console.log({res:JSON.stringify(res)})
-  });
-
-}
-
-exports.deleteAll = () => {
-  db.ref('jobs/').remove().then(res=>{
-    console.log({res:JSON.stringify(res)})
-  })
-}
+exports.db = admin.database();

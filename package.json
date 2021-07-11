@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "restartData": "node src/scripts/initialDataPopulate.js",
+    "countRepeatWords": "node src/scripts/countRepeatWords.js"
   },
   "keywords": [],
   "author": "",

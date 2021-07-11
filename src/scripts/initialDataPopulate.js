@@ -1,11 +1,21 @@
-const { create, deleteAll } = require('../firebase/index')
+const { db } = require('../firebase/index')
 const rawData = require('../../sentences.json');
 
-
+const create = async (newJob) => {
+	await db.ref('jobs').push(newJob).then(res=>{
+	  console.log({res:JSON.stringify(res)})
+	});
+  }
+  
+const deleteAll = () => {
+  db.ref('jobs/').remove().then(res=>{
+    console.log({res:JSON.stringify(res)})
+  })
+}
 (async function(){
 	await deleteAll()
 	
-	for(let i = 0; i < 10; i++){
+	for(let i = 0; i < rawData.length; i++){
 
 		// The format of the categories is change to an array of objects
 		let catsArray = [];
