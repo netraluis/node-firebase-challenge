@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>Add Jobs</h1>
+    <form action="/edit/<%= id %>" method="post">
+      <div class="form-group">
+          <label>Text:</label>
+          <input type="text" class="form-control" name="text" value="<%= text %>" autocomplete="off">
+      </div>
+      <% cats.forEach(function(cat) { %>
+        <div class="form-group">
+            <label><%= cat.cat %>:</label>
+             <input type="number" class="form-control" name="<%= cat.cat %>" value="<%= cat.value %>" autocomplete="off">
+        </div>
+        <% }); %>
+
+      <div class="form-group">
+          <input type="submit" class="btn btn-info" value="Update"/>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Jobs</h1>
+        <ul>
+            <% jobsArray.forEach(function(job) { %>   
+                <li>
+                    <strong><%= job.text %></strong> <a class="btn btn-success edit" href="../edit/<%=job.id%>">Edit</a><a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="../delete/<%=job.id%>">Delete</a>                       
+                    <ul>
+                      <% job.cats.forEach(function(cat) { %>
+                        <li>
+                            <strong><%= cat.cat %>: <%= cat.value %></strong>
+                            <!-- representing <%= job.text %>, born <%= job.text %> -->
+                            <ul>
+                              
+                            </ul>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
