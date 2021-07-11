@@ -4,7 +4,6 @@ const rawData = require('../../sentences.json');
 
 (async function(){
 	await deleteAll()
-	console.log(rawData.length)
 	
 	for(let i = 0; i < 10; i++){
 
